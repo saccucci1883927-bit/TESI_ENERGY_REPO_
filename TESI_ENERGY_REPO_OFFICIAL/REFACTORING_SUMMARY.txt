@@ -1,0 +1,16 @@
+# Refactoring Summary: Allineamento con il Documento di Tesi (Capitoli 3-4)
+
+## Changes Made:
+1. **Correzione Parametrica delle Architetture (Cap. 3.6 & 4.1.2)**: 
+   - I modelli Bi-LSTM e CNN-Bi-LSTM caricavano involontariamente 100 neuroni nel sorgente temporaneo generato. Ho calibrato e fixato su `70` neuroni per l'allocazione vettoriale bidirezionale (70 forward + 70 backward) come riportato direttamente nel Capitolo 4.1.2 della tesi.
+   - Confermato il batch size e il tuning (Conv1D 256 filters, ReLU setup, padding).
+2. **Validazione Logica Preprocessing (Cap. 3.3/3.4)**: 
+   - L'inserimento del `RobustScaler` e il mantenimento delle corrette sliding windows a `n_in=72` e `n_out=24` (per 168), implementano perfettamente le casistiche descritte nello studio per l'immunità agli outliers del mercato Centro-Sud.
+3. **Metriche e Aggiornamento Formale (Cap. 3.5 & Tabella 12)**:
+   - Sradicata la formula originaria difettosa per la gestione dei "Prezzi Nulli" della stagione primaverile: il mercato subiva un effetto "cannibalizzazione" dai fotovoltaici, causando un MAPE virtualmente infinito (es: >2000%). Modificata la library di evaluation con calcolatore anti-singolarità (*Epsilon-Offset* mask come in `evaluation.py`).
+4. **Allineamento Documentale**: 
+   - Iniettato e steso il report README.md usando esclusivamente i report numerici crudi (es: MAE invernale=5.890 e primaverile critico).
+
+---
+
+**Date Updated:** 2026-04-16 11:00 (UTC)

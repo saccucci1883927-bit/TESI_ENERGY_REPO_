@@ -1,0 +1,9 @@
+tensorflow>=2.6.0
+keras
+pandas
+numpy
+scikit-learn
+plotly
+matplotlib
+jupyter
+statsmodels
