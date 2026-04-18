@@ -2,7 +2,7 @@
 
 Questa repository contiene i codici sorgenti elaborati nella Tesi sull'applicazione di architetture Deep Learning basate su LSTM ibride al forecasting energetico. Il focus primario è la comparazione dei framework per la previsione nel mercato MGP (Mercato del Giorno Prima) nel delicato assetto della zona Centro-Sud Italia, caratterizzata da un aumento di Fonti di Energia Rinnovabili (FER). 
 
-L'obiettivo dell'analisi è l'implementazione pratica del preprocessing (sequenze dinamiche a 72h e 168h e normalizzazione ad-hoc) e della logica architetturale per misurare metriche oggettive e definire il modello vincente.
+L' analisi compara i moderni framework di Deep learning  per la previsione dei prezzi energetici e suggerisce che l' implementazione di CNN poste prima della rete LSTM aumentino significativamente le performance di accuratezza nella previsione gioraliera (24 timestep) 
 
 ## Struttura della Repository
 - `data/`: Dataset storici.
